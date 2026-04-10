@@ -17,6 +17,11 @@ function App() {
     setArticolo("");
   }
   
+    // Funzione per eliminare un articolo dalla lista
+    const handleDelete = (index) => {
+      Setarticoli(Articoli.filter((_, i) => i !== index));
+    };
+  
   return (
     <>
       <form onSubmit={addArticolo} className='flex gap-6 mt-6 justify-center'>
@@ -25,10 +30,11 @@ function App() {
       </form>
 
       <div className="flex justify-center mt-4">
-        <ul className='flex flex-col w-[150px] border border-slate-300 rounded-sm items-center'>
+        <ul className='flex flex-col w-auto border border-slate-300 rounded-sm items-center py-4 px-4'>
           {Articoli.map((a,i) => (
-            <li key={i}>
-              {a}
+            <li className='flex justify-between mb-2 w-full py-3 border-b border-slate-300' key={i}>
+              <span className='mr-2'>{a}</span>
+              <button onClick={() => handleDelete(i)} className='border border-slate-300 rounded-sm px-2 py-1 hover:bg-slate-100 hover:border-slate-500'>elimina</button>
             </li>
           ))}
         </ul>
