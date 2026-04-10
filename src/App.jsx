@@ -11,16 +11,16 @@ function App() {
   const [Articoli,Setarticoli] = useState([]);
   const [Articolo,setArticolo] = useState("");
 
-  const addArticolo= e => {
+  const addArticolo = (e) => {
     e.preventDefault();
     Setarticoli([...Articoli, Articolo]);
     setArticolo("");
-  }
+  } 
   
-    // Funzione per eliminare un articolo dalla lista
-    const handleDelete = (index) => {
-      Setarticoli(Articoli.filter((_, i) => i !== index));
-    };
+  // Funzione per eliminare un articolo dalla lista
+  const handleDelete = (i) => {
+    Setarticoli(Articoli.filter((_,index) => index !== i));
+  };
   
   return (
     <>
